@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@turf/turf": "^7.2.0",
     "cesium": "^1.126.0",
+    "cesium-navigation-es6": "^3.0.9",
     "gsap": "^3.12.7",
     "normalize.css": "^8.0.1",
     "vite-plugin-cesium": "^1.2.23",

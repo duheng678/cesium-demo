@@ -1,7 +1,6 @@
 import * as Cesium from 'cesium'
 export const initViewer = async () => {
-  Cesium.Ion.defaultAccessToken =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyNGFjOGZjNC01M2VlLTQ3ZDItYjk2NC0wY2E3ZDFlMzMyOTgiLCJpZCI6MjYyNTIwLCJpYXQiOjE3MzQyMjkwODV9.aoHi7aesaKXDhsm-wnehyzmr1psHyHzFB2c08BjILWo'
+  Cesium.Ion.defaultAccessToken = import.meta.env.VITE_APP_TOKEN
   // // 设置cesium的根目录
   // window.CESIUM_BASE_URL = '/'
   // //设置cesium的默认视角
@@ -29,8 +28,6 @@ export const initViewer = async () => {
     iframe.setAttribute('sandbox', 'allow-same-origin allow-scripts allow-popups allow-forms')
     iframe.setAttribute('src', '')
   }
-  const tiles3d = await Cesium.createOsmBuildingsAsync()
-  viewer.scene.primitives.add(tiles3d)
 
   return viewer
 }
