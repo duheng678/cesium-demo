@@ -30,14 +30,19 @@ onMounted(async () => {
     23.0991,
     1500
   )
-  viewer.camera.flyTo({
-    destination: position,
-    duration: 2,
-    orientation: {
-      heading: Cesium.Math.toRadians(0), // 方向
-      pitch: Cesium.Math.toRadians(-30), // 倾斜
-      roll: 0, // 旋转
-    },
+
+  window.addEventListener('keydown', event => {
+    if (event.key == 1) {
+      viewer.camera.flyTo({
+        destination: position,
+        duration: 2,
+        orientation: {
+          heading: Cesium.Math.toRadians(0), // 方向
+          pitch: Cesium.Math.toRadians(-30), // 倾斜
+          roll: 0, // 旋转
+        },
+      })
+    }
   })
   //控制相机角度
 
@@ -57,7 +62,7 @@ onMounted(async () => {
   // 初始化导航罗盘
   new CesiumNavigation(viewer, options)
   //修改地图的底色
-  modifyMap(viewer)
+  // modifyMap(viewer)
   //修改底图建筑
   modifyBuilding(viewer)
   //创建动态光锥
